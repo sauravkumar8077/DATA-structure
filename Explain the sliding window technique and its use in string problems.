@@ -1,0 +1,29 @@
+
+  /* The Sliding Window technique is used to reduce the time complexity of problems involving arrays or strings by avoiding nested loops.
+   Instead of checking all possible substrings or subarrays, we use a window that slides over the input and maintains useful information (like frequency, sum, length, etc.). */
+
+import java.util.*;
+public class SlidingWindowExample {
+    public int lengthOfLongestSubstring(String s) {
+        Set<Character> window = new HashSet<>();
+        int left = 0, maxLength = 0;
+
+        for (int right = 0; right < s.length(); right++) {
+           
+            while (window.contains(s.charAt(right))) {
+                window.remove(s.charAt(left));
+                left++;
+            }
+            window.add(s.charAt(right));
+            maxLength = Math.max(maxLength, right - left + 1);
+        }
+
+        return maxLength;
+    }
+
+    public static void main(String[] args) {
+        SlidingWindowExample obj = new SlidingWindowExample();
+        String s = "abcabcbb";
+        System.out.println("Length of longest substring without repeating characters: " + obj.lengthOfLongestSubstring(s));
+    }
+}
