@@ -1,0 +1,28 @@
+public class PalindromeInteger {
+    public static boolean isPalindrome(int x) {
+
+        if (x < 0 || (x % 10 == 0 && x != 0)) {
+            return false;
+        }
+
+        int reversedHalf = 0;
+        while (x > reversedHalf) {
+            reversedHalf = reversedHalf * 10 + x % 10;
+            x /= 10;
+        }
+
+        return x == reversedHalf || x == reversedHalf / 10;
+    }
+
+    public static void main(String[] args) {
+        int num1 = 121;
+        int num2 = -121;
+        int num3 = 10;
+
+        System.out.println(num1 + " is palindrome? " + isPalindrome(num1)); 
+        System.out.println(num2 + " is palindrome? " + isPalindrome(num2)); 
+        System.out.println(num3 + " is palindrome? " + isPalindrome(num3)); 
+    }
+}
+// Time complexity=O(n)
+// Space complexity=O(1)
