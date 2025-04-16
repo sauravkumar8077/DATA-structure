@@ -1,0 +1,25 @@
+public class UniqueDigitNumbers {
+
+    public static int countNumbersWithUniqueDigits(int n) {
+        if (n == 0) return 1;
+        if (n > 10) n = 10;  // Only 10 digits exist (0-9)
+
+        int total = 10;  // for n = 1
+        int uniqueDigits = 9;
+        int available = 9;
+
+        for (int i = 2; i <= n; i++) {
+            uniqueDigits *= available;
+            total += uniqueDigits;
+            available--;
+        }
+
+        return total;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(countNumbersWithUniqueDigits(2)); // Output: 91
+        System.out.println(countNumbersWithUniqueDigits(3)); // Output: 739
+        System.out.println(countNumbersWithUniqueDigits(0)); // Output: 1
+    }
+}
