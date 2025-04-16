@@ -1,0 +1,4 @@
+ Ans. A prefix sum array is an array where each element at index i stores the sum of all elements 
+     from the beginning up to index i in the original array.
+     arr={1,2,3,4,5} 
+     prefixsum={1,3,6,10,15}
